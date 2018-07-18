@@ -15,6 +15,8 @@
   </div>
   <div class="card-body">
     <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
+      <div class="row">
+      <div class="col-6">
       <div class="form-group">
         <label for ="vorname">Vorname</label>
           <input 
@@ -35,6 +37,8 @@
             Mindestens 2 Buchstaben
             </div>
       </div>
+    </div>
+      <div class="col-6">
       <div class="form-group">
           <label for ="nachname">Nachname</label>
             <input 
@@ -54,7 +58,11 @@
             <div [hidden]="!clientNachname.errors?.minlength" class="invalid-feedback">
               Mindestens 2 Buchstaben
               </div>
+            </div>
         </div>
+      </div>
+      <div class="row">
+      <div class="col-6">
         <div class="form-group">
             <label for ="email">Email</label>
               <input 
@@ -71,6 +79,8 @@
                 Email benötigt
               </div>
           </div>
+        </div>
+        <div class="col-6">
           <div class="form-group">
               <label for ="telefon">Telefon</label>
                 <input 
@@ -90,6 +100,8 @@
                 <div [hidden]="!clientTelefon.errors?.minlength" class="invalid-feedback">
                   Mindestens 2 Buchstaben
                   </div>
+                </div>
+              </div>
             </div>
             <div class="form-group">
                 <label for ="guthaben">Guthaben</label>
@@ -102,7 +114,7 @@
                     [disabled] = "disableBalanceOnAdd"
                   >
               </div>
-              <input type ="submit" value="Submit" class="btn btn-primary btn-block">
+              <input type ="submit" value="Bestätigen" class="btn btn-primary btn-block">
     </form>
   </div>
 </div>
