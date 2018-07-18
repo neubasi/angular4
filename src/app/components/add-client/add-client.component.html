@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink ="/" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i>Zurück zum Dashboard
+    </a>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Erstelle Kunde
+  </div>
+  <div class="card-body">
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
+      <div class="form-group">
+        <label for ="vorname">Vorname</label>
+          <input 
+            type = "text"
+            class = "form-control"
+            name = "vorname"
+            #clientVorname="ngModel"
+            [ngClass] = "{'is-invalid':clientVorname.errors && 
+            clientVorname.touched}"
+            [(ngModel)] ="client.vorname"
+            minlength="2"
+            required
+          >
+          <div [hidden]="!clientVorname.errors?.required" class="invalid-feedback">
+            Vorname benötigt
+          </div>
+          <div [hidden]="!clientVorname.errors?.minlength" class="invalid-feedback">
+            Mindestens 2 Buchstaben
+            </div>
+      </div>
+      <div class="form-group">
+          <label for ="nachname">Nachname</label>
+            <input 
+              type = "text"
+              class = "form-control"
+              name = "nachname"
+              #clientNachname="ngModel"
+              [ngClass] = "{'is-invalid':clientNachname.errors && 
+              clientNachname.touched}"
+              [(ngModel)] ="client.nachname"
+              minlength="2"
+              required
+            >
+            <div [hidden]="!clientNachname.errors?.required" class="invalid-feedback">
+              Nachname benötigt
+            </div>
+            <div [hidden]="!clientNachname.errors?.minlength" class="invalid-feedback">
+              Mindestens 2 Buchstaben
+              </div>
+        </div>
+        <div class="form-group">
+            <label for ="email">Email</label>
+              <input 
+                type = "text"
+                class = "form-control"
+                name = "email"
+                #clientEmail="ngModel"
+                [ngClass] = "{'is-invalid':clientEmail.errors && 
+                clientEmail.touched}"
+                [(ngModel)] ="client.email"
+                required
+              >
+              <div [hidden]="!clientEmail.errors?.required" class="invalid-feedback">
+                Email benötigt
+              </div>
+          </div>
+          <div class="form-group">
+              <label for ="telefon">Telefon</label>
+                <input 
+                  type = "text"
+                  class = "form-control"
+                  name = "telefon"
+                  #clientTelefon="ngModel"
+                  [ngClass] = "{'is-invalid':clientTelefon.errors && 
+                  clientTelefon.touched}"
+                  [(ngModel)] ="client.telefon"
+                  minlength="2"
+                  required
+                >
+                <div [hidden]="!clientTelefon.errors?.required" class="invalid-feedback">
+                  Nachname benötigt
+                </div>
+                <div [hidden]="!clientTelefon.errors?.minlength" class="invalid-feedback">
+                  Mindestens 2 Buchstaben
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for ="guthaben">Guthaben</label>
+                  <input 
+                    type = "number"
+                    class = "form-control"
+                    name = "guthaben"
+                    #clientGuthaben="ngModel"
+                    [(ngModel)] ="client.guthaben"
+                    [disabled] = "disableBalanceOnAdd"
+                  >
+              </div>
+              <input type ="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
